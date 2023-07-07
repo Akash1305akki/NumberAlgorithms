@@ -8,16 +8,15 @@ public class AmstrongNumber {
         System.out.println("Enter your input: ");
         int input = sc.nextInt();
         int temp = 0 ,output = 0, condition = input;
+        String str = Integer.toString(input);
+        int count = str.length();
 
-        while (input > 0)
-        {
+        while (input > 0) {
             temp = input % 10;
-            output =output + (int)Math.pow(temp,3);
+            output = output + (int) Math.pow(temp, count);
             input = input / 10;
             temp = 0;
         }
-
-        output = output + (int) Math.pow(input,3);
 
         if (output == condition)
         {
