@@ -80,30 +80,5 @@ public class OptionMatching {
                 OptionMatching.main(Ak);
             }
         }
-
-        System.out.println();
-        System.out.print("\t -");
-        Thread.sleep(500);
-        System.out.print("\t -");
-        Thread.sleep(500);
-        System.out.print("\t -");
-        Thread.sleep(500);
-        System.out.print("\t Thank ");
-        Thread.sleep(500);
-        System.out.print("You ");
-        Thread.sleep(500);
-        System.out.print("for ");
-        Thread.sleep(500);
-        System.out.print("using ");
-        Thread.sleep(500);
-        System.out.print("My ");
-        Thread.sleep(500);
-        System.out.print("Application ");
-        Thread.sleep(500);
-        System.out.print("\t -");
-        Thread.sleep(500);
-        System.out.print("\t -");
-        Thread.sleep(500);
-        System.out.print("\t -");
     }
 }
