@@ -12,9 +12,9 @@ public class Driver extends Thread {
     static int userPassword;
     static int limitCount=1;
     static boolean loggedIn= false;
+    static boolean end = false;
 
     public static void main(String[] Ak) throws Exception {
-        int terminate=0;
         System.out.print("\t -");
         Thread.sleep(500);
         System.out.print("\t -");
@@ -40,12 +40,12 @@ public class Driver extends Thread {
         System.out.println();
         Thread.sleep(1000);
 
-        while (terminate==0) {
+        while (loggedIn == false && end == false) {
             System.out.println("Choose your path: \n" +
                     "1. Sign-Up\n" +
-                    "2. Login-In\n" +
-                    "3. Logout");
+                    "2. Login-In");
             int choise = sc.nextInt();
+            System.out.println();
 
             switch (choise) {
                 case 1: {
@@ -62,22 +62,6 @@ public class Driver extends Thread {
                     }
                     break;
                 }
-                case 3:{
-                    System.out.println("This Process will erase all your credential details...");
-                    System.out.println("Are you sure to logout..?\n" +
-                            "Press '1' to Logout & Press '0' to Stay-in");
-                    terminate = sc.nextInt();
-                    if ((terminate==1)&&(loggedIn==true)){
-                        logout();
-                    } else if (terminate==0) {
-                        break;
-                    } else {
-                        System.out.println("You haven't logged in in the first place...\n" +
-                                           "Anyway...");
-                        logout();
-                    }
-                    break;
-                }
                 default: {
                     System.out.println("Invalid Operation Requested...\n" +
                             "Try Again...");
@@ -88,6 +72,7 @@ public class Driver extends Thread {
     }
 
     public static void signUp(){
+        System.out.println("Let's Create Your Account...");
         System.out.print("Enter a user name: ");
         String inputID = sc.next();
         orginalID.add(inputID);
@@ -102,8 +87,6 @@ public class Driver extends Thread {
 
     public static void loginMethod() throws Exception {
         System.out.println("Enter Your Login Credentials");
-        System.out.println();
-
         System.out.print("User ID: ");
         userID = sc.next();
 
@@ -116,8 +99,8 @@ public class Driver extends Thread {
 
     public static void loginCheck(String[] Ak) throws Exception{
         if ((orginalID.contains(userID)) && (orginalPassword.contains(userPassword)) && (orginalID.indexOf(userID)==orginalPassword.indexOf(userPassword))) {
-            OptionMatching.main(Ak);
             loggedIn = true;
+            OptionMatching.main(Ak);
         } else {
             limitCount++;
             if (limitCount<=3) {
@@ -138,6 +121,7 @@ public class Driver extends Thread {
     }
 
     public static void logout() throws Exception{
+        end =true;
         System.out.println();
         System.out.print("\t -");
         Thread.sleep(500);
@@ -161,6 +145,6 @@ public class Driver extends Thread {
         Thread.sleep(500);
         System.out.print("\t -");
         Thread.sleep(500);
-        System.out.print("\t -");
+        System.out.println("\t -");
     }
 }
